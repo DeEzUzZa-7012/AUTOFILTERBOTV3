@@ -268,7 +268,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [
                 [
-                    InlineKeyboardButton('Making Video', url=f'{TUTORIAL}')
+                    InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
+                    InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l')
                 ]
                 ]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -276,7 +277,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('Making Video', url=f'{TUTORIAL}')
+                    InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
+                    InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l')
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -297,13 +299,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
-                buttons = [[
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}'),
-                    ],[
-                        InlineKeyboardButton("📖 𝖥𝗂𝗅𝗍𝖾𝗋 𝖳𝗒𝗉𝖾𝗌 📖", callback_data=f"types({chat_id})")
-                    ],[
-                        InlineKeyboardButton("📣 𝖢𝗁𝖺𝗇𝗇𝖾𝗅𝗌 📣", callback_data=f"channel_list({chat_id})")
-                     ]]
+                buttons = [
+                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
+                        InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l')
+                    ]
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
@@ -329,13 +328,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{title}"
-                buttons = [[
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
-                    ],[
-                        InlineKeyboardButton("📖 𝖥𝗂𝗅𝗍𝖾𝗋 𝖳𝗒𝗉𝖾𝗌 📖", callback_data=f"types({chat_id})")
-                    ],[
-                        InlineKeyboardButton("📣 𝖢𝗁𝖺𝗇𝗇𝖾𝗅𝗌 📣", callback_data=f"channel_list({chat_id})")
-                     ]]
+                buttons = [
+                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
+                        InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l')
+                    ]
+                    ]
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
