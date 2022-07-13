@@ -53,7 +53,7 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}\n**➪ Requested by :  {message.from_user.mention}\n**🖋 𝖲𝗍𝗈𝗋𝗒𝗅𝗂𝗇𝖾: {story.get('plot')}**"  
+        mo_tech_yt = f"**➪ Title:** {search}\n**➪ Rating:** {random.choice(RATING)}\n**➪ Genres:** {random.choice(GENRES)}\n**➪ Uploaded by {message.chat.title}\n**➪ Requested by :  {message.from_user.mention}**"  
         files = await get_filter_results(query=search)
         if files:
             for file in files:
@@ -115,7 +115,7 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}\n**➪ Requested by :  {message.from_user.mention}\n**🖋 𝖲𝗍𝗈𝗋𝗒𝗅𝗂𝗇𝖾: {story.get('plot')}**"
+        mo_tech_yt = f"**➪ Title:** {search}\n**➪ Rating:** {random.choice(RATING)}\n**➪ Genres:** {random.choice(GENRES)}\n**➪ Uploaded by {message.chat.title}\n**➪ Requested by :  {message.from_user.mention}\n**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -211,10 +211,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}"),
+                     InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -225,10 +223,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)+1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)+1}_{keyword}"),
+                     InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -249,10 +245,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
+                    [InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}"),
+                     InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -263,10 +257,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)-1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)-1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}"),
+                     InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -305,12 +297,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
-                buttons = [
-                    [
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
-                    ]
-                    ]
-                
+                buttons = [[
+                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}'),
+                    ],[
+                        InlineKeyboardButton("📖 𝖥𝗂𝗅𝗍𝖾𝗋 𝖳𝗒𝗉𝖾𝗌 📖", callback_data=f"types({chat_id})")
+                    ],[
+                        InlineKeyboardButton("📣 𝖢𝗁𝖺𝗇𝗇𝖾𝗅𝗌 📣", callback_data=f"channel_list({chat_id})")
+                     ]]
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
@@ -336,12 +329,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{title}"
-                buttons = [
-                    [
+                buttons = [[
                         InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
-                    ]
-                    ]
-                
+                    ],[
+                        InlineKeyboardButton("📖 𝖥𝗂𝗅𝗍𝖾𝗋 𝖳𝗒𝗉𝖾𝗌 📖", callback_data=f"types({chat_id})")
+                    ],[
+                        InlineKeyboardButton("📣 𝖢𝗁𝖺𝗇𝗇𝖾𝗅𝗌 📣", callback_data=f"channel_list({chat_id})")
+                     ]]
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
