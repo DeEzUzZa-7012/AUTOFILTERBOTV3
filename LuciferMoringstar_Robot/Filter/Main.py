@@ -267,7 +267,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                    InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
+                    InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"),
                 ]
                 ]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -276,7 +276,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                    InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
+                    InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"),
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -299,7 +299,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                         InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                        InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
+                        InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"),
                     ]
                 await query.answer()
                 await client.send_cached_media(
@@ -328,7 +328,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                         InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                        InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
+                        InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"),
                     ]
                     ]
                 await query.answer()
