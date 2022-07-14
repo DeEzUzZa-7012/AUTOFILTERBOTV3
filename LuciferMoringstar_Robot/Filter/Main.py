@@ -95,10 +95,8 @@ async def filter(client, message):
         buttons = data['buttons'][0].copy()
 
         buttons.append(
-            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
-        )    
-        buttons.append(
-            [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
+            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}"),
+             InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
         poster=None
         if API_KEY:
@@ -277,8 +275,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
-                    InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l"),
+                    InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
+                    InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -300,8 +298,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
                 buttons = [
-                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
-                        InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l')
+                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
                     ]
                 await query.answer()
                 await client.send_cached_media(
@@ -329,8 +327,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 if f_caption is None:
                     f_caption = f"{title}"
                 buttons = [
-                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}'),
-                        InlineKeyboardButton('🎥CHANNEL', url=https://t.me/malayali00l')
+                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('🎥CHANNEL', url="https://t.me/malayali00l"
                     ]
                     ]
                 await query.answer()
