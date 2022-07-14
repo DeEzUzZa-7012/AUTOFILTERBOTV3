@@ -267,7 +267,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-           
                 ]
                 ]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -275,8 +274,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                    
+                    InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')    
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -298,8 +296,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
                 buttons = [
-                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                       
+                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')  
                     ]
                 await query.answer()
                 await client.send_cached_media(
@@ -327,8 +324,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 if f_caption is None:
                     f_caption = f"{title}"
                 buttons = [
-                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')
-                        
+                        InlineKeyboardButton('♻️GROUP', url=f'{TUTORIAL}')   
                     ]
                     ]
                 await query.answer()
