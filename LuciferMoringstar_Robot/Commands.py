@@ -121,7 +121,7 @@ async def start(bot, message):
                 InlineKeyboardButton("About", callback_data="about")
                 ],[
                 InlineKeyboardButton("🎥CHANNEL", url="https://t.me/malayali00l"
-                InlineKeyboardButton("♻️GROUP", url="https://t.me/MMCINEMACHAKKU"
+                InlineKeyboardButton("♻️GROUP", url="https://t.me/MMCINEMACHAKKU")
                 ]]
             )
         )
